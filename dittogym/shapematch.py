@@ -95,7 +95,7 @@ class shapematch(dittogym):
             elif start_point > 512:
                 while start_point > 512:
                     start_point -= 512
-            image = cv2.imread(os.path.join(self.current_directory, "./bg/bg.png"), cv2.IMREAD_COLOR)\
+            image = cv2.imread(os.path.join(self.current_directory, "bg/bg.png"), cv2.IMREAD_COLOR)\
                 .astype(np.uint8).transpose(1, 0, 2)[:, ::-1, :]
             image = np.concatenate([image[start_point:512, :, :], image[:start_point, :, :]], axis=0)
             gui.set_image(image)
