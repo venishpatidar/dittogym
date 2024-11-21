@@ -20,8 +20,7 @@ class shapematch(dittogym):
         else:
             self.add_circle(0.0, 0.0, 0.17, is_object=False)
         print("n_particles: ", self.n_particles, "action_space: ", self.action_space.shape)
-        self.target_robot = cv2.imread(os.path.join(self.current_directory,\
-            "./target_for_shape_match/{}.jpg".format(self.cfg["target"])), cv2.IMREAD_GRAYSCALE).astype(np.int32)
+        self.target_robot = cv2.imread(self.cfg["target_dir_abs_path"]+"{}.jpg".format(self.cfg["target"]), cv2.IMREAD_GRAYSCALE).astype(np.int32)
         self.target_robot[self.target_robot < 125] = 0
         self.target_robot[self.target_robot >= 125] = 255
         for i in range(len(self.x_list)):
